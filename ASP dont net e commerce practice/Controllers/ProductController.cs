@@ -22,7 +22,9 @@ namespace ASP_dont_net_e_commerce_practice.Controllers
         //viewresult to return the combined data of product and category using a view model
         public ViewResult List(string category)
         {
+            //List of products object
             IEnumerable<Product> products;
+            //String for current category
             string currentCategory;
 
             if (string.IsNullOrEmpty(category))

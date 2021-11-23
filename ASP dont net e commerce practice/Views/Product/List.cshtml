@@ -1,7 +1,11 @@
 ﻿@model ProductListViewModel
 
-<h1>@Model.CurrentCategory</h1>
-@foreach (var product in Model.Products)
-{
-    <partial name="_productCard" model="product" />
+
+    <!--Display the title of the current category-->
+    <h1>@Model.CurrentCategory</h1>
+
+    <!--The foreach will loop through all the products in the category-->
+    @foreach (var product in Model.Products)
+    {
+<partial name="_productCard" model="product" />
 }
