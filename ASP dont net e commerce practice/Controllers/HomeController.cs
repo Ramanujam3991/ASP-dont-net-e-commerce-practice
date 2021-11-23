@@ -11,27 +11,21 @@ namespace ASP_dont_net_e_commerce_practice.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IProductRepository _ProductRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IProductRepository ProductRepository)
         {
-            _logger = logger;
+            _ProductRepository = ProductRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
-        }
+            var homeViewModel = new HomeViewModel
+            {
+                ProductOnSale = _ProductRepository.GetProductOnSale
+            };
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(homeViewModel);
         }
     }
 }

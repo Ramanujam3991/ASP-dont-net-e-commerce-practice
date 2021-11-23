@@ -14,6 +14,7 @@ namespace ASP_dont_net_e_commerce_practice.Models
             _appDbContext = appDbContext;
         }
 
+        //method gets categories data from the database and return to controller
         public IEnumerable<Category> GetAllCategories => _appDbContext.Categories;
     }
 }

@@ -14,6 +14,8 @@ namespace ASP_dont_net_e_commerce_practice.Models
             _appDbContext = appDbContext;
         }
 
+
+        //Method gets all the products from the database in product table
         public IEnumerable<Product> GetAllProduct
         {
             get
@@ -22,6 +24,7 @@ namespace ASP_dont_net_e_commerce_practice.Models
             }
         }
 
+        //method gets all the prodcuts that are on sale from the database product table
         public IEnumerable<Product> GetProductOnSale
         {
             get
@@ -30,6 +33,8 @@ namespace ASP_dont_net_e_commerce_practice.Models
             }
         }
 
+        //method gets specific product with requested productId from the database in product table
+        // if the product for the corresponding productId is not found the null is returned
         public Product GetProductById(int productId)
         {
             return _appDbContext.Products.FirstOrDefault(c => c.ProductId == productId);
